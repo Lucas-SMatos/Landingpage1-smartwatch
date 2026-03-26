@@ -1,0 +1,3617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AEVUM ONE — O primeiro smartwatch que une tecnologia de ponta com relojoaria clássica. Edição limitada de 500 unidades mundiais." />
+  <meta name="keywords" content="smartwatch luxo, relógio inteligente premium, AEVUM ONE, smartwatch titanio" />
+  <meta property="og:title" content="AEVUM ONE — O Tempo é Seu. Use-o com Distinção." />
+  <meta property="og:description" content="Smartwatch de luxo. Edição limitada de 500 unidades. Tecnologia e elegância no seu pulso." />
+  <title>AEVUM ONE — O Tempo é Seu. Use-o com Distinção.</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       RESET & GLOBAL
+    ============================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-primary: #FAFAF8;
+      --bg-dark: #0E0E0C;
+      --bg-dark-2: #151513;
+      --bg-beige: #F5F0E8;
+      --text-primary: #1A1A1A;
+      --text-secondary: #5A5A5A;
+      --text-muted: #8A8A8A;
+      --text-light: #F5F0E8;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dark: #A8893A;
+      --silver: #B8C0CC;
+      --border: #E8E4DC;
+      --border-dark: #2A2A28;
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.14);
+      --shadow-gold: 0 8px 32px rgba(201,168,76,0.25);
+      --radius: 4px;
+      --radius-lg: 12px;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'DM Sans', 'Inter', sans-serif;
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-fast: all 0.2s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Custom Cursor */
+    .cursor {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-follower {
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 99998;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      transform: translate(-50%, -50%);
+      opacity: 0.6;
+    }
+
+    body:hover .cursor { opacity: 1; }
+
+    a, button { cursor: none; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* Selection */
+    ::selection { background: var(--gold); color: #fff; }
+
+    /* ============================================
+       TYPOGRAPHY
+    ============================================ */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    h1 { font-size: clamp(2.2rem, 5vw, 4.2rem); font-weight: 600; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 500; }
+    h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 500; }
+
+    p { font-family: var(--font-sans); font-weight: 300; color: var(--text-secondary); }
+
+    .gold-text { color: var(--gold); }
+    .serif { font-family: var(--font-serif); }
+
+    /* ============================================
+       LAYOUT UTILITIES
+    ============================================ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 80px);
+    }
+
+    .container-wide {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 80px);
+    }
+
+    .section {
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .divider-gold {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin: 24px 0;
+    }
+
+    /* ============================================
+       ANIMATIONS
+    ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .delay-1 { transition-delay: 0.15s; }
+    .delay-2 { transition-delay: 0.30s; }
+    .delay-3 { transition-delay: 0.45s; }
+    .delay-4 { transition-delay: 0.60s; }
+    .delay-5 { transition-delay: 0.75s; }
+    .delay-6 { transition-delay: 0.90s; }
+
+    /* ============================================
+       BUTTONS
+    ============================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      border-radius: var(--radius);
+      cursor: none;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.15);
+      transition: left 0.4s ease;
+      skewX: -15deg;
+    }
+
+    .btn:hover::before { left: 100%; }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
+      color: #fff;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(201,168,76,0.40);
+    }
+
+    .btn-gold:active { transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      color: var(--text-light);
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+
+    .btn-outline-light:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .btn-lg {
+      padding: 20px 56px;
+      font-size: 0.9rem;
+    }
+
+    /* ============================================
+       HEADER / NAV
+    ============================================ */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      transition: var(--transition);
+      padding: 24px 0;
+    }
+
+    #header.scrolled {
+      background: rgba(14, 14, 12, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+
+    .nav-logo-name {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+
+    .nav-logo-tagline {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: #fff;
+      transition: var(--transition-fast);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--bg-dark);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .mobile-menu a:hover { color: var(--gold); }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 24px; right: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    /* ============================================
+       HERO SECTION
+    ============================================ */
+    #hero {
+      min-height: 100vh;
+      background: var(--bg-dark);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 60%, rgba(201,168,76,0.08) 0%, transparent 70%),
+                  radial-gradient(ellipse 60% 80% at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 60%),
+                  linear-gradient(180deg, #0A0A08 0%, #131311 50%, #0E0E0C 100%);
+    }
+
+    /* Noise texture overlay */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      min-height: 100vh;
+      padding-top: 100px;
+    }
+
+    .hero-content { padding: 80px 0; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 100px;
+      padding: 8px 20px;
+      margin-bottom: 36px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      animation: pulse-badge 3s ease infinite;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: blink 1.5s ease infinite;
+    }
+
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.2); }
+      50% { box-shadow: 0 0 0 8px rgba(201,168,76,0); }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-headline {
+      color: #FFFFFF;
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-weight: 600;
+      line-height: 1.12;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subheadline {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 48px;
+      max-width: 480px;
+    }
+
+    .hero-subheadline strong {
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .hero-scroll {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--gold);
+      animation: scroll-anim 2s ease infinite;
+    }
+
+    @keyframes scroll-anim {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    /* Hero Watch Visual */
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 100%;
+      min-height: 600px;
+    }
+
+    .watch-container {
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(-3deg); }
+      50% { transform: translateY(-20px) rotate(-3deg); }
+    }
+
+    .watch-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: glow-pulse 4s ease infinite;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+      50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.4; }
+    }
+
+    /* SVG Watch */
+    .watch-svg {
+      width: 280px;
+      height: 380px;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 40px 80px rgba(0,0,0,0.6)) drop-shadow(0 0 40px rgba(201,168,76,0.2));
+    }
+
+    /* Hero decorative elements */
+    .hero-orbit {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.1);
+      animation: rotate-orbit 20s linear infinite;
+    }
+
+    .hero-orbit-1 {
+      width: 500px; height: 500px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-orbit-2 {
+      width: 700px; height: 700px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation-duration: 35s;
+      animation-direction: reverse;
+    }
+
+    .orbit-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: absolute;
+      top: -3px; left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes rotate-orbit {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* ============================================
+       STORYTELLING SECTION
+    ============================================ */
+    #story {
+      background: var(--bg-primary);
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .story-image {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .story-image-placeholder {
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, #1A1A18 0%, #2A2A26 40%, #1E1E1A 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+
+    .story-image-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,76,0.12) 0%, transparent 70%);
+    }
+
+    .story-watch-small {
+      position: relative;
+      z-index: 2;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .story-image-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 32px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: rgba(255,255,255,0.7);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .story-content { }
+
+    .story-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      padding-left: 24px;
+      border-left: 2px solid var(--gold);
+    }
+
+    .story-text {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .story-signature {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .signature-line { width: 40px; height: 1px; background: var(--gold); }
+
+    .signature-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ============================================
+       PRODUCT SECTION
+    ============================================ */
+    #product {
+      background: var(--bg-beige);
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .product-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .product-main-image {
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #0A0A08 0%, #1E1E1A 50%, #121210 100%);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg), 0 0 60px rgba(201,168,76,0.1);
+    }
+
+    .product-main-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,76,0.1) 0%, transparent 70%);
+    }
+
+    .product-thumbnails {
+      display: flex;
+      gap: 16px;
+    }
+
+    .product-thumb {
+      width: 80px; height: 80px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1A1A18, #2A2A26);
+      border: 2px solid transparent;
+      cursor: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-thumb.active, .product-thumb:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 20px rgba(201,168,76,0.2);
+    }
+
+    .product-info { }
+
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .product-title {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .product-price-block {
+      margin: 28px 0;
+      padding: 24px;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .product-price-main {
+      font-family: var(--font-serif);
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .product-price-main span {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    .product-price-installment {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .product-price-installment strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .product-desc {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+    }
+
+    /* Color selector */
+    .color-selector { margin-bottom: 32px; }
+
+    .color-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+    }
+
+    .color-label span {
+      color: var(--text-muted);
+      font-weight: 300;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-left: 8px;
+    }
+
+    .color-options {
+      display: flex;
+      gap: 14px;
+    }
+
+    .color-option {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: none;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .color-option.active, .color-option:hover {
+      border-color: var(--gold);
+      transform: scale(1.1);
+    }
+
+    .color-option::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .color-option.active::after { opacity: 1; }
+
+    .color-midnight { background: #1A1A18; }
+    .color-champagne { background: linear-gradient(135deg, #C9A84C, #E8C97A); }
+    .color-arctic { background: linear-gradient(135deg, #B8C0CC, #D0D8E4); }
+
+    .product-cta-block {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .product-guarantee {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 16px;
+    }
+
+    .guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .guarantee-icon {
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    /* ============================================
+       FEATURES SECTION
+    ============================================ */
+    #features {
+      background: var(--bg-primary);
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .features-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 72px;
+    }
+
+    .features-header .section-label { justify-content: center; }
+    .features-header .divider-gold { margin: 24px auto; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-card {
+      background: #fff;
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .feature-card:hover::before { transform: scaleX(1); }
+
+    .feature-card:hover {
+      background: var(--bg-beige);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      z-index: 1;
+    }
+
+    .feature-icon {
+      width: 56px; height: 56px;
+      background: var(--bg-beige);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover .feature-icon {
+      background: var(--gold);
+    }
+
+    .feature-card:hover .feature-icon svg { color: #fff; }
+
+    .feature-icon svg {
+      width: 26px; height: 26px;
+      color: var(--gold);
+      transition: color 0.3s;
+    }
+
+    .feature-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .feature-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .feature-stat {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .feature-stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ============================================
+       VIDEO SECTION
+    ============================================ */
+    #video {
+      background: var(--bg-dark);
+      padding: clamp(80px, 10vw, 120px) 0;
+    }
+
+    .video-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .video-header h2 { color: #fff; }
+    .video-header p { color: rgba(255,255,255,0.5); margin-top: 16px; }
+    .video-header .section-label { justify-content: center; }
+
+    .video-wrapper {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 60px rgba(201,168,76,0.1);
+      cursor: none;
+    }
+
+    .video-placeholder {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #0A0A08 0%, #1E1E1A 40%, #131311 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
+    }
+
+    /* Grid lines decoration */
+    .video-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .video-play-btn {
+      position: relative;
+      z-index: 2;
+      width: 90px; height: 90px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 0 rgba(201,168,76,0.4);
+      animation: play-pulse 3s ease infinite;
+      transition: transform 0.3s ease;
+      cursor: none;
+    }
+
+    .video-play-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .video-play-btn svg {
+      width: 28px; height: 28px;
+      color: #fff;
+      margin-left: 4px;
+    }
+
+    @keyframes play-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+      50% { box-shadow: 0 0 0 20px rgba(201,168,76,0); }
+    }
+
+    .video-caption {
+      position: absolute;
+      bottom: 28px; left: 0; right: 0;
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================
+       SOCIAL PROOF
+    ============================================ */
+    #social-proof {
+      background: var(--bg-primary);
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .proof-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .proof-header .divider-gold { margin: 24px auto; }
+
+    /* Stats */
+    .proof-stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-bottom: 72px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-number span { color: var(--gold); }
+
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* Media logos */
+    .media-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      margin-bottom: 80px;
+      padding: 32px;
+      background: var(--bg-beige);
+      border-radius: var(--radius-lg);
+      flex-wrap: wrap;
+    }
+
+    .media-logo {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+      opacity: 0.6;
+    }
+
+    .media-logo:hover { color: var(--gold); opacity: 1; }
+
+    .media-sep {
+      width: 4px; height: 4px;
+      background: var(--border);
+      border-radius: 50%;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      border-color: rgba(201,168,76,0.3);
+    }
+
+    .testimonial-card.featured {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, #1A1A18 100%);
+      border-color: rgba(201,168,76,0.2);
+    }
+
+    .testimonial-card.featured .testimonial-text,
+    .testimonial-card.featured .testimonial-author,
+    .testimonial-card.featured .testimonial-city {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .testimonial-card.featured .testimonial-author { color: #fff; }
+    .testimonial-card.featured .testimonial-text { color: rgba(255,255,255,0.75); font-size: 1.05rem; }
+
+    .testimonial-quote-icon {
+      font-family: var(--font-serif);
+      font-size: 4rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: -10px;
+      opacity: 0.4;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .star {
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .testimonial-footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .testimonial-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+      flex-shrink: 0;
+    }
+
+    .avatar-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      display: block;
+    }
+
+    .testimonial-city {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ============================================
+       COMPARISON TABLE
+    ============================================ */
+    #comparison {
+      background: var(--bg-beige);
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .comparison-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .comparison-header .divider-gold { margin: 24px auto; }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .comparison-table thead tr {
+      background: var(--bg-dark);
+    }
+
+    .comparison-table th {
+      padding: 24px 32px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    .comparison-table th:first-child {
+      color: rgba(255,255,255,0.5);
+    }
+
+    .th-aevum {
+      color: var(--gold) !important;
+      background: rgba(201,168,76,0.1);
+      position: relative;
+    }
+
+    .th-aevum::after {
+      content: '★ Melhor escolha';
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: rgba(201,168,76,0.7);
+      margin-top: 4px;
+      font-weight: 300;
+    }
+
+    .comparison-table td {
+      padding: 20px 32px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-table tbody tr:last-child td { border-bottom: none; }
+
+    .comparison-table tbody tr:nth-child(odd) td { background: #fff; }
+    .comparison-table tbody tr:nth-child(even) td { background: #FAFAF6; }
+
+    .td-feature {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .td-aevum {
+      color: var(--text-primary);
+      font-weight: 500;
+      background: rgba(201,168,76,0.04) !important;
+    }
+
+    .td-common {
+      color: var(--text-muted);
+    }
+
+    .check-yes {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .check-no {
+      color: #ccc;
+    }
+
+    /* ============================================
+       EXCLUSIVITY SECTION
+    ============================================ */
+    #exclusivity {
+      background: var(--bg-dark);
+      padding: clamp(80px, 10vw, 140px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exclusivity-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .exclusivity-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .exclusivity-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .exclusivity-header h2 { color: #fff; }
+
+    .exclusivity-header p {
+      color: rgba(255,255,255,0.5);
+      margin-top: 16px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .exclusivity-header .divider-gold { margin: 24px auto; }
+
+    /* Countdown */
+    .countdown-block {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .countdown-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .countdown-label::before,
+    .countdown-label::after {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: rgba(201,168,76,0.4);
+    }
+
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .countdown-number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 600;
+      color: #fff;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 10px;
+      padding: 16px 28px;
+      min-width: 110px;
+      text-align: center;
+      line-height: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .countdown-number::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--gold);
+    }
+
+    .countdown-sep {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      color: var(--gold);
+      align-self: flex-start;
+      margin-top: 16px;
+      opacity: 0.7;
+    }
+
+    .countdown-unit-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .units-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .units-left strong { font-weight: 700; font-size: 1.1rem; }
+
+    /* Materials */
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .material-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .material-card:hover {
+      background: rgba(201,168,76,0.06);
+      border-color: rgba(201,168,76,0.2);
+      transform: translateY(-4px);
+    }
+
+    .material-icon {
+      width: 64px; height: 64px;
+      margin: 0 auto 20px;
+      background: rgba(201,168,76,0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .material-icon svg {
+      width: 32px; height: 32px;
+      color: var(--gold);
+    }
+
+    .material-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .material-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ============================================
+       FAQ SECTION
+    ============================================ */
+    #faq {
+      background: var(--bg-primary);
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .faq-header .divider-gold { margin: 24px auto; }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+      cursor: none;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: color 0.3s;
+      gap: 16px;
+    }
+
+    .faq-question:hover { color: var(--gold); }
+
+    .faq-icon {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--bg-beige);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+      color: var(--gold);
+      font-size: 1.2rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--gold);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 24px;
+    }
+
+    .faq-answer p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      padding-right: 48px;
+    }
+
+    /* ============================================
+       CTA FINAL
+    ============================================ */
+    #cta-final {
+      background: var(--bg-dark);
+      padding: clamp(80px, 12vw, 160px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 65%);
+    }
+
+    .cta-bg-lines {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .cta-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .cta-eyebrow::before, .cta-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 48px; height: 1px;
+      background: rgba(201,168,76,0.5);
+    }
+
+    .cta-headline {
+      color: #fff;
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .cta-headline em { color: var(--gold); font-style: italic; }
+
+    .cta-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .cta-sub strong { color: rgba(255,255,255,0.8); }
+
+    .cta-btn-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .cta-microcopy {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-microcopy-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.05em;
+    }
+
+    .cta-microcopy-item svg {
+      width: 14px; height: 14px;
+      color: var(--gold);
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: #080806;
+      padding: 72px 0 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+
+    .footer-bio {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 28px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      text-decoration: none;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .social-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .social-btn svg { width: 16px; height: 16px; }
+
+    .footer-col-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.2);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-legal a:hover { color: var(--gold); }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 120px;
+      }
+
+      .hero-content { padding: 40px 0; }
+
+      .hero-subheadline { max-width: 100%; margin-left: auto; margin-right: auto; }
+
+      .hero-actions { justify-content: center; }
+
+      .hero-visual { min-height: 400px; }
+
+      .hero-scroll { justify-content: center; }
+
+      .story-grid,
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial-card.featured { grid-column: 1; }
+
+      .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 14px 16px;
+        font-size: 0.82rem;
+      }
+
+      .materials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .countdown-timer { gap: 8px; }
+      .countdown-number { min-width: 80px; padding: 12px 16px; font-size: 2.4rem; }
+      .countdown-sep { font-size: 2.2rem; }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .proof-stats { gap: 32px; }
+
+      .media-logos { gap: 24px; }
+
+      .hero-orbit-1, .hero-orbit-2 { display: none; }
+
+      .product-main-image { max-width: 300px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn-lg { width: 100%; justify-content: center; }
+
+      .cta-microcopy { flex-direction: column; gap: 12px; }
+
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      .footer-legal { flex-wrap: wrap; justify-content: center; }
+    }
+
+    /* ============================================
+       PROGRESS BAR
+    ============================================ */
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ============================================
+       BACK TO TOP
+    ============================================ */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-gold);
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: var(--transition);
+      text-decoration: none;
+      border: none;
+      cursor: none;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.4);
+    }
+
+    .back-to-top svg {
+      width: 20px; height: 20px;
+      color: #fff;
+    }
+
+    /* ============================================
+       NOTIFICATION
+    ============================================ */
+    .notification {
+      position: fixed;
+      bottom: 32px; left: 32px;
+      background: var(--bg-dark);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-lg);
+      z-index: 900;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: var(--transition);
+      max-width: 320px;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notif-icon {
+      width: 36px; height: 36px;
+      background: rgba(201,168,76,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .notif-icon svg { width: 16px; height: 16px; color: var(--gold); }
+
+    .notif-text { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
+    .notif-text strong { color: #fff; display: block; margin-bottom: 2px; }
+  </style>
+</head>
+
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- ============================================
+     HEADER
+============================================ -->
+<header id="header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-name">AEVUM</span>
+        <span class="nav-logo-tagline">Luxury Smartwatch</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#story">História</a></li>
+        <li><a href="#product">Produto</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#social-proof">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#product" class="btn btn-gold" style="padding: 12px 28px; font-size: 0.75rem;">Comprar Agora</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+  <a href="#story" onclick="closeMobileMenu()">História</a>
+  <a href="#product" onclick="closeMobileMenu()">Produto</a>
+  <a href="#features" onclick="closeMobileMenu()">Features</a>
+  <a href="#social-proof" onclick="closeMobileMenu()">Reviews</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="#product" class="btn btn-gold" onclick="closeMobileMenu()">Comprar Agora</a>
+</div>
+
+<!-- ============================================
+     HERO SECTION
+============================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <!-- Content -->
+    <div class="hero-content">
+      <div class="hero-badge fade-in">Edição Limitada — apenas 500 unidades mundiais</div>
+      <h1 class="hero-headline fade-in delay-1">
+        O Tempo Sempre Foi Seu<br>
+        <em>Bem Mais Precioso.</em>
+      </h1>
+      <p class="hero-subheadline fade-in delay-2">
+        <strong>AEVUM ONE</strong> — o primeiro smartwatch que respeita
+        tanto a sua agenda quanto o seu estilo. Tecnologia de ponta
+        encapsulada em relojoaria clássica.
+      </p>
+      <div class="hero-actions fade-in delay-3">
+        <a href="#product" class="btn btn-gold btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Descubra o Futuro no Seu Pulso
+        </a>
+        <a href="#video" class="btn btn-outline-light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Ver vídeo
+        </a>
+      </div>
+      <div class="hero-scroll fade-in delay-4">
+        <div class="scroll-line"></div>
+        <span>Role para explorar</span>
+      </div>
+    </div>
+
+    <!-- Visual -->
+    <div class="hero-visual fade-in-right delay-2">
+      <!-- Orbits -->
+      <div class="hero-orbit hero-orbit-1">
+        <div class="orbit-dot"></div>
+      </div>
+      <div class="hero-orbit hero-orbit-2">
+        <div class="orbit-dot" style="top: auto; bottom: -3px;"></div>
+      </div>
+
+      <!-- Watch Glow -->
+      <div class="watch-glow"></div>
+
+      <!-- Watch SVG -->
+      <div class="watch-container">
+        <svg class="watch-svg" viewBox="0 0 280 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Strap top -->
+          <rect x="100" y="0" width="80" height="70" rx="12" fill="#1A1A18"/>
+          <rect x="110" y="8" width="60" height="4" rx="2" fill="rgba(201,168,76,0.3)"/>
+          <rect x="110" y="16" width="60" height="4" rx="2" fill="rgba(201,168,76,0.2)"/>
+          <rect x="110" y="24" width="60" height="4" rx="2" fill="rgba(201,168,76,0.15)"/>
+          <rect x="110" y="32" width="60" height="4" rx="2" fill="rgba(201,168,76,0.1)"/>
+          <rect x="110" y="40" width="60" height="4" rx="2" fill="rgba(201,168,76,0.08)"/>
+          <!-- Strap bottom -->
+          <rect x="100" y="310" width="80" height="70" rx="12" fill="#1A1A18"/>
+          <rect x="110" y="318" width="60" height="4" rx="2" fill="rgba(201,168,76,0.1)"/>
+          <rect x="110" y="326" width="60" height="4" rx="2" fill="rgba(201,168,76,0.15)"/>
+          <rect x="110" y="334" width="60" height="4" rx="2" fill="rgba(201,168,76,0.2)"/>
+          <rect x="110" y="342" width="60" height="4" rx="2" fill="rgba(201,168,76,0.3)"/>
+          <rect x="110" y="350" width="60" height="4" rx="2" fill="rgba(201,168,76,0.2)"/>
+          <!-- Buckle -->
+          <circle cx="140" cy="358" r="4" fill="rgba(201,168,76,0.5)"/>
+          <!-- Case outer -->
+          <rect x="30" y="65" width="220" height="250" rx="48" fill="url(#caseGrad)"/>
+          <!-- Case bezel -->
+          <rect x="38" y="73" width="204" height="234" rx="42" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
+          <!-- Screen bg -->
+          <rect x="50" y="85" width="180" height="210" rx="36" fill="#060606"/>
+          <!-- Screen glow -->
+          <rect x="50" y="85" width="180" height="210" rx="36" fill="url(#screenGlow)" opacity="0.8"/>
+          <!-- Watch face elements -->
+          <!-- Hour marks -->
+          <g stroke="rgba(201,168,76,0.6)" stroke-width="1.5" stroke-linecap="round">
+            <line x1="140" y1="98" x2="140" y2="108"/>
+            <line x1="140" y1="282" x2="140" y2="292"/>
+            <line x1="58" y1="190" x2="68" y2="190"/>
+            <line x1="212" y1="190" x2="222" y2="190"/>
+          </g>
+          <!-- Minute marks small -->
+          <g stroke="rgba(201,168,76,0.25)" stroke-width="1" stroke-linecap="round">
+            <line x1="165" y1="101" x2="163" y2="110"/>
+            <line x1="185" y1="110" x2="181" y2="118"/>
+            <line x1="200" y1="125" x2="194" y2="131"/>
+            <line x1="210" y1="145" x2="203" y2="148"/>
+            <line x1="115" y1="101" x2="117" y2="110"/>
+            <line x1="95" y1="110" x2="99" y2="118"/>
+            <line x1="80" y1="125" x2="86" y2="131"/>
+            <line x1="70" y1="145" x2="77" y2="148"/>
+            <line x1="210" y1="235" x2="203" y2="232"/>
+            <line x1="200" y1="255" x2="194" y2="249"/>
+            <line x1="185" y1="270" x2="181" y2="262"/>
+            <line x1="165" y1="279" x2="163" y2="270"/>
+            <line x1="70" y1="235" x2="77" y2="232"/>
+            <line x1="80" y1="255" x2="86" y2="249"/>
+            <line x1="95" y1="270" x2="99" y2="262"/>
+            <line x1="115" y1="279" x2="117" y2="270"/>
+          </g>
+          <!-- Center circle -->
+          <circle cx="140" cy="190" r="55" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
+          <circle cx="140" cy="190" r="35" fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="1"/>
+          <!-- Digital display area -->
+          <rect x="95" y="152" width="90" height="36" rx="8" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+          <!-- Time text -->
+          <text x="140" y="177" text-anchor="middle" fill="rgba(201,168,76,0.95)" font-size="18" font-family="'DM Sans', sans-serif" font-weight="500" letter-spacing="2">10:10</text>
+          <!-- Brand name on watch -->
+          <text x="140" y="208" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8" font-family="'Playfair Display', serif" letter-spacing="4">AEVUM</text>
+          <!-- Health rings -->
+          <circle cx="140" cy="230" r="20" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="4"/>
+          <circle cx="140" cy="230" r="20" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="4" stroke-dasharray="94.25 125.66" stroke-linecap="round" transform="rotate(-90 140 230)"/>
+          <circle cx="140" cy="230" r="13" fill="none" stroke="rgba(100,180,120,0.7)" stroke-width="3" stroke-dasharray="55 81.68" stroke-linecap="round" transform="rotate(-90 140 230)"/>
+          <!-- Heart rate icon -->
+          <path d="M136 229 L138 226 L140 232 L142 225 L144 229 L146 229" stroke="rgba(255,100,100,0.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- Crown button -->
+          <rect x="248" y="170" width="12" height="40" rx="6" fill="#2A2A26"/>
+          <rect x="250" y="174" width="8" height="32" rx="4" fill="url(#goldGrad2)"/>
+          <!-- Defs -->
+          <defs>
+            <linearGradient id="caseGrad" x1="30" y1="65" x2="250" y2="315" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#2A2A26"/>
+              <stop offset="30%" stop-color="#3A3A36"/>
+              <stop offset="60%" stop-color="#252522"/>
+              <stop offset="100%" stop-color="#1A1A18"/>
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="38" y1="73" x2="242" y2="307" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#C9A84C"/>
+              <stop offset="40%" stop-color="#E8C97A"/>
+              <stop offset="70%" stop-color="#C9A84C"/>
+              <stop offset="100%" stop-color="#A8893A"/>
+            </linearGradient>
+            <linearGradient id="goldGrad2" x1="250" y1="170" x2="258" y2="210" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#E8C97A"/>
+              <stop offset="100%" stop-color="#A8893A"/>
+            </linearGradient>
+            <radialGradient id="screenGlow" cx="50%" cy="35%" r="60%">
+              <stop offset="0%" stop-color="rgba(201,168,76,0.08)"/>
+              <stop offset="100%" stop-color="transparent"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     STORYTELLING
+============================================ -->
+<section id="story" class="section">
+  <div class="container">
+    <div class="story-grid">
+      <!-- Image -->
+      <div class="story-image fade-in-left">
+        <div class="story-image-placeholder">
+          <div class="story-watch-small">
+            <svg width="200" height="270" viewBox="0 0 280 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="100" y="0" width="80" height="70" rx="12" fill="#1A1A18"/>
+              <rect x="100" y="310" width="80" height="70" rx="12" fill="#1A1A18"/>
+              <rect x="30" y="65" width="220" height="250" rx="48" fill="url(#caseGrad2)"/>
+              <rect x="38" y="73" width="204" height="234" rx="42" fill="none" stroke="url(#goldGrad3)" stroke-width="1.5"/>
+              <rect x="50" y="85" width="180" height="210" rx="36" fill="#060606"/>
+              <text x="140" y="177" text-anchor="middle" fill="rgba(201,168,76,0.9)" font-size="18" font-family="'DM Sans', sans-serif" font-weight="500" letter-spacing="2">10:10</text>
+              <text x="140" y="208" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8" font-family="'Playfair Display', serif" letter-spacing="4">AEVUM</text>
+              <g stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round">
+                <line x1="140" y1="98" x2="140" y2="108"/>
+                <line x1="140" y1="282" x2="140" y2="292"/>
+                <line x1="58" y1="190" x2="68" y2="190"/>
+                <line x1="212" y1="190" x2="222" y2="190"/>
+              </g>
+              <defs>
+                <linearGradient id="caseGrad2" x1="30" y1="65" x2="250" y2="315" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#2A2A26"/>
+                  <stop offset="50%" stop-color="#3A3A36"/>
+                  <stop offset="100%" stop-color="#1A1A18"/>
+                </linearGradient>
+                <linearGradient id="goldGrad3" x1="38" y1="73" x2="242" y2="307" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#C9A84C"/>
+                  <stop offset="50%" stop-color="#E8C97A"/>
+                  <stop offset="100%" stop-color="#A8893A"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="story-image-caption">Oficina de Montagem · Suíça, 2024</div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="story-content fade-in-right">
+        <div class="section-label">A história</div>
+        <h2>Nascido da Obsessão<br>com <span class="gold-text">Perfeição</span></h2>
+        <div class="divider-gold"></div>
+
+        <blockquote class="story-quote">
+          "Não queríamos criar apenas mais um relógio inteligente. Queríamos criar algo que você sentisse orgulho de usar para sempre."
+        </blockquote>
+
+        <p class="story-text">
+          Tudo começou em uma pequena oficina em Genebra, onde relojoeiros de terceira geração se uniram a engenheiros de Silicon Valley com uma missão incomum: criar um smartwatch que não envergonhasse ao lado de um Rolex.
+        </p>
+        <p class="story-text">
+          Após quatro anos de desenvolvimento, 83 protótipos descartados e mais de 12.000 horas de testes, nasceu o AEVUM ONE. Um artefato de precisão onde cada componente conta uma história de obsessão — do vidro de safira cultivado em laboratório ao couro Horween curtido artesanalmente em Chicago.
+        </p>
+        <p class="story-text">
+          O resultado não é um produto. É um manifesto para quem acredita que o tempo é sagrado e merece ser celebrado com distinção.
+        </p>
+
+        <div class="story-signature">
+          <div class="signature-line"></div>
+          <span class="signature-text">— A equipe AEVUM, Genebra</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     PRODUCT SECTION
+============================================ -->
+<section id="product">
+  <div class="container">
+    <div class="product-grid">
+      <!-- Visual -->
+      <div class="product-visual fade-in-left">
+        <div class="product-main-image">
+          <svg width="220" height="300" viewBox="0 0 280 380" fill="none" xmlns="http://www.w3.org/2000/svg" id="productWatch">
+            <rect x="100" y="0" width="80" height="72" rx="12" fill="#1A1A18"/>
+            <rect x="108" y="6" width="64" height="3" rx="1.5" fill="rgba(201,168,76,0.25)"/>
+            <rect x="108" y="13" width="64" height="3" rx="1.5" fill="rgba(201,168,76,0.18)"/>
+            <rect x="108" y="20" width="64" height="3" rx="1.5" fill="rgba(201,168,76,0.12)"/>
+            <rect x="108" y="27" width="64" height="3" rx="1.5" fill="rgba(201,168,76,0.08)"/>
+            <rect x="100" y="308" width="80" height="72" rx="12" fill="#1A1A18"/>
+            <rect x="108" y="316" width="64" height="3" rx="1.5" fill="rgba(201,168,76,0.08)"/>
+            <rect x="108" y="323" width="64" height="3" rx="1.5" fill="rgba(201,168,76,0.12)"/>
+            <rect x="108" y="330" width="64" height="3" rx="1.5" fill="rgba(201,168,76,0.18)"/>
+            <rect x="108" y="337" width="64" height="3" rx="1.5" fill="rgba(201,168,76,0.25)"/>
+            <rect x="30" y="67" width="220" height="246" rx="48" fill="url(#prodCase)"/>
+            <rect x="38" y="75" width="204" height="230" rx="42" fill="none" stroke="url(#prodGold)" stroke-width="2"/>
+            <rect x="52" y="87" width="176" height="206" rx="34" fill="#040404"/>
+            <rect x="52" y="87" width="176" height="206" rx="34" fill="url(#prodScreen)"/>
+            <circle cx="140" cy="190" r="72" fill="none" stroke="rgba(201,168,76,0.06)" stroke-width="1"/>
+            <circle cx="140" cy="190" r="52" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
+            <g stroke="rgba(201,168,76,0.7)" stroke-width="2" stroke-linecap="round">
+              <line x1="140" y1="100" x2="140" y2="113"/>
+              <line x1="140" y1="267" x2="140" y2="280"/>
+              <line x1="64" y1="190" x2="77" y2="190"/>
+              <line x1="203" y1="190" x2="216" y2="190"/>
+            </g>
+            <g stroke="rgba(201,168,76,0.3)" stroke-width="1" stroke-linecap="round">
+              <line x1="168" y1="104" x2="165" y2="116"/>
+              <line x1="193" y1="117" x2="188" y2="126"/>
+              <line x1="211" y1="139" x2="204" y2="145"/>
+              x<line x1="220" y1="163" x2="212" y2="167"/>
+              <line x1="112" y1="104" x2="115" y2="116"/>
+              <line x1="87" y1="117" x2="92" y2="126"/>
+              <line x1="69" y1="139" x2="76" y2="145"/>
+              <line x1="60" y1="163" x2="68" y2="167"/>
+              <line x1="60" y1="217" x2="68" y2="213"/>
+              <line x1="69" y1="241" x2="76" y2="235"/>
+              <line x1="87" y1="263" x2="92" y2="254"/>
+              <line x1="112" y1="276" x2="115" y2="264"/>
+              <line x1="168" y1="276" x2="165" y2="264"/>
+              <line x1="193" y1="263" x2="188" y2="254"/>
+              <line x1="211" y1="241" x2="204" y2="235"/>
+              <line x1="220" y1="217" x2="212" y2="213"/>
+            </g>
+            <rect x="98" y="155" width="84" height="30" rx="7" fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.18)" stroke-width="1"/>
+            <text x="140" y="176" text-anchor="middle" fill="rgba(201,168,76,1)" font-size="17" font-family="'DM Sans', sans-serif" font-weight="500" letter-spacing="3">10:10</text>
+            <text x="140" y="200" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="7.5" font-family="'Playfair Display', serif" letter-spacing="5">AEVUM ONE</text>
+            <!-- Activity rings -->
+            <circle cx="140" cy="230" r="22" fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="5"/>
+            <circle cx="140" cy="230" r="22" fill="none" stroke="rgba(201,168,76,0.8)" stroke-width="5" stroke-dasharray="103 138" stroke-linecap="round" transform="rotate(-90 140 230)"/>
+            <circle cx="140" cy="230" r="14" fill="none" stroke="rgba(100,220,150,0.7)" stroke-width="4" stroke-dasharray="60 88" stroke-linecap="round" transform="rotate(-90 140 230)"/>
+            <circle cx="140" cy="230" r="6" fill="none" stroke="rgba(100,150,255,0.6)" stroke-width="3" stroke-dasharray="25 37.7" stroke-linecap="round" transform="rotate(-90 140 230)"/>
+            <rect x="250" y="165" width="11" height="50" rx="5.5" fill="#222220"/>
+            <rect x="251" y="168" width="7" height="40" rx="3.5" fill="url(#crownGrad)"/>
+            <defs>
+              <linearGradient id="prodCase" x1="30" y1="67" x2="250" y2="313" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#333330"/>
+                <stop offset="30%" stop-color="#424240"/>
+                <stop offset="60%" stop-color="#2A2A28"/>
+                <stop offset="100%" stop-color="#1C1C1A"/>
+              </linearGradient>
+              <linearGradient id="prodGold" x1="38" y1="75" x2="242" y2="305" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#D4B060"/>
+                <stop offset="25%" stop-color="#EDD080"/>
+                <stop offset="50%" stop-color="#C9A84C"/>
+                <stop offset="75%" stop-color="#E8C97A"/>
+                <stop offset="100%" stop-color="#A8893A"/>
+              </linearGradient>
+              <radialGradient id="prodScreen" cx="50%" cy="30%" r="55%">
+                <stop offset="0%" stop-color="rgba(201,168,76,0.07)"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+              <linearGradient id="crownGrad" x1="251" y1="165" x2="258" y2="215" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#E8C97A"/>
+                <stop offset="100%" stop-color="#A8893A"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="product-thumbnails">
+          <button class="product-thumb active" onclick="selectVariant('midnight', this)" title="Midnight Black">
+            <svg width="44" height="60" viewBox="0 0 280 380" fill="none">
+              <rect x="90" y="0" width="100" height="75" rx="12" fill="#0A0A08"/>
+              <rect x="90" y="305" width="100" height="75" rx="12" fill="#0A0A08"/>
+              <rect x="25" y="70" width="230" height="240" rx="50" fill="#1A1A18"/>
+              <rect x="40" y="85" width="200" height="210" rx="38" fill="#030303"/>
+              <text x="140" y="197" text-anchor="middle" fill="rgba(201,168,76,0.9)" font-size="18" font-family="sans-serif" font-weight="500" letter-spacing="2">10:10</text>
+            </svg>
+          </button>
+          <button class="product-thumb" onclick="selectVariant('champagne', this)" title="Champagne Gold">
+            <svg width="44" height="60" viewBox="0 0 280 380" fill="none">
+              <rect x="90" y="0" width="100" height="75" rx="12" fill="#8B6914"/>
+              <rect x="90" y="305" width="100" height="75" rx="12" fill="#8B6914"/>
+              <rect x="25" y="70" width="230" height="240" rx="50" fill="url(#champCase)"/>
+              <rect x="40" y="85" width="200" height="210" rx="38" fill="#050402"/>
+              <text x="140" y="197" text-anchor="middle" fill="rgba(232,201,122,0.95)" font-size="18" font-family="sans-serif" font-weight="500" letter-spacing="2">10:10</text>
+              <defs>
+                <linearGradient id="champCase" x1="25" y1="70" x2="255" y2="310" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#C9A84C"/>
+                  <stop offset="50%" stop-color="#E8C97A"/>
+                  <stop offset="100%" stop-color="#A8893A"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </button>
+          <button class="product-thumb" onclick="selectVariant('arctic', this)" title="Arctic Silver">
+            <svg width="44" height="60" viewBox="0 0 280 380" fill="none">
+              <rect x="90" y="0" width="100" height="75" rx="12" fill="#7A8290"/>
+              <rect x="90" y="305" width="100" height="75" rx="12" fill="#7A8290"/>
+              <rect x="25" y="70" width="230" height="240" rx="50" fill="url(#arcticCase)"/>
+              <rect x="40" y="85" width="200" height="210" rx="38" fill="#040407"/>
+              <text x="140" y="197" text-anchor="middle" fill="rgba(200,210,230,0.9)" font-size="18" font-family="sans-serif" font-weight="500" letter-spacing="2">10:10</text>
+              <defs>
+                <linearGradient id="arcticCase" x1="25" y1="70" x2="255" y2="310" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#C8D0DC"/>
+                  <stop offset="50%" stop-color="#E0E8F4"/>
+                  <stop offset="100%" stop-color="#98A0AC"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="product-info fade-in-right">
+        <div class="product-name">AEVUM · Coleção Fundadora</div>
+        <h2 class="product-title">AEVUM ONE</h2>
+
+        <div class="product-price-block">
+          <div class="product-price-main"><span>R$</span>4.997</div>
+          <div class="product-price-installment">
+            ou <strong>12x de R$ 416,41</strong> sem juros • Frete grátis para todo Brasil
+          </div>
+        </div>
+
+        <p class="product-desc">
+          Construído com caixa de titânio grau aeroespacial Grade 5, vidro de safira sintética resistente a arranhões, pulseira em couro Horween curtido artesanalmente e processador dedicado de última geração. O AEVUM ONE é o ápice da fusão entre relojoaria suíça e inteligência artificial.
+        </p>
+
+        <!-- Color Selector -->
+        <div class="color-selector">
+          <div class="color-label">Acabamento: <span id="colorName">Midnight Black</span></div>
+          <div class="color-options">
+            <button class="color-option color-midnight active" onclick="selectColor('Midnight Black', this)" title="Midnight Black"></button>
+            <button class="color-option color-champagne" onclick="selectColor('Champagne Gold', this)" title="Champagne Gold"></button>
+            <button class="color-option color-arctic" onclick="selectColor('Arctic Silver', this)" title="Arctic Silver"></button>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="product-cta-block">
+          <button class="btn btn-gold btn-lg" style="width:100%; justify-content:center;" onclick="addToCart()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Adicionar ao Carrinho
+          </button>
+          <button class="btn btn-outline" style="width:100%; justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Adicionar à Lista de Desejos
+          </button>
+        </div>
+
+        <!-- Guarantees -->
+        <div class="product-guarantee">
+          <div class="guarantee-item">
+            <svg class="guarantee-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Garantia 2 anos
+          </div>
+          <div class="guarantee-item">
+            <svg class="guarantee-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            30 dias para testar
+          </div>
+          <div class="guarantee-item">
+            <svg class="guarantee-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Frete grátis
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     FEATURES
+============================================ -->
+<section id="features" class="section">
+  <div class="container">
+    <div class="features-header fade-in">
+      <div class="section-label">Tecnologia de elite</div>
+      <h2>Cada Detalhe,<br><span class="gold-text">Perfeitamente Calculado</span></h2>
+      <div class="divider-gold"></div>
+      <p>Seis razões pelas quais o AEVUM ONE não é apenas um smartwatch —<br>é um investimento no seu bem-estar e identidade.</p>
+    </div>
+
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-card fade-in">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="feature-stat">7 <span style="font-size:1rem;color:var(--text-muted)">dias</span></div>
+          <div class="feature-stat-label">Bateria de vida longa</div>
+        </div>
+        <div class="feature-title">Autonomia de 7 Dias</div>
+        <p class="feature-desc">Bateria de grafeno de última geração com carregamento sem fio em 45 minutos. Uma semana inteira sem se preocupar com cabos.</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card fade-in delay-1">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="feature-stat">24<span style="font-size:1rem;color:var(--text-muted)">/h</span></div>
+          <div class="feature-stat-label">Monitoramento contínuo</div>
+        </div>
+        <div class="feature-title">Saúde Cardíaca 24h</div>
+        <p class="feature-desc">Sensor óptico de 9 LEDs monitora frequência cardíaca, saturação de oxigênio e ECG em tempo real. Tecnologia médica no seu pulso.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card fade-in delay-2">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="feature-stat" style="font-size:1.4rem;">Safira</div>
+          <div class="feature-stat-label">Sintética monocristal</div>
+        </div>
+        <div class="feature-title">Vidro de Safira</div>
+        <p class="feature-desc">Vidro de safira sintética com dureza Mohs 9, praticamente indestrutível. A mesma tecnologia usada em relógios suíços de +R$100.000.</p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card fade-in delay-3">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+          </svg>
+        </div>
+        <div>
+          <div class="feature-stat">GPS</div>
+          <div class="feature-stat-label">Dual-band integrado</div>
+        </div>
+        <div class="feature-title">GPS Dual-Band</div>
+        <p class="feature-desc">GPS L1+L5 de alta precisão para rastreamento esportivo e navegação indoor/outdoor com precisão de 1 metro.</p>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="feature-card fade-in delay-4">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22V12M12 12C12 12 7 9 7 5a5 5 0 0 1 10 0c0 4-5 7-5 7z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="feature-stat">50<span style="font-size:1rem;color:var(--text-muted)">m</span></div>
+          <div class="feature-stat-label">À prova d'água</div>
+        </div>
+        <div class="feature-title">À Prova D'água 5ATM</div>
+        <p class="feature-desc">Resistente a 50 metros de profundidade. Natação, mergulho livre e esportes aquáticos sem nenhuma preocupação.</p>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="feature-card fade-in delay-5">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10h-10z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="feature-stat" style="font-size:1.2rem;">IA</div>
+          <div class="feature-stat-label">Saúde Pessoal</div>
+        </div>
+        <div class="feature-title">IA de Saúde Pessoal</div>
+        <p class="feature-desc">Motor de inteligência artificial aprende seus padrões biométricos e fornece insights personalizados sobre sono, estresse e fitness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     VIDEO SECTION
+============================================ -->
+<section id="video">
+  <div class="container">
+    <div class="video-header fade-in">
+      <div class="section-label" style="justify-content:center;">Experiência em vídeo</div>
+      <h2 style="color:#fff;">Veja o AEVUM ONE em Ação</h2>
+      <p>Dois minutos que vão mudar sua visão sobre o que um smartwatch pode ser.</p>
+    </div>
+
+    <div class="video-wrapper fade-in delay-1">
+      <div class="video-placeholder">
+        <div class="video-grid"></div>
+        <!-- Decorative watches in corners -->
+        <div style="position:absolute;top:20px;left:20px;opacity:0.15;">
+          <svg width="60" height="80" viewBox="0 0 280 380" fill="none">
+            <rect x="90" y="0" width="100" height="75" rx="12" fill="#C9A84C"/>
+            <rect x="90" y="305" width="100" height="75" rx="12" fill="#C9A84C"/>
+            <rect x="25" y="70" width="230" height="240" rx="50" fill="#2A2A26"/>
+            <rect x="40" y="85" width="200" height="210" rx="38" fill="#030303"/>
+          </svg>
+        </div>
+        <div style="position:absolute;bottom:20px;right:20px;opacity:0.15;transform:rotate(15deg);">
+          <svg width="60" height="80" viewBox="0 0 280 380" fill="none">
+            <rect x="90" y="0" width="100" height="75" rx="12" fill="#C9A84C"/>
+            <rect x="90" y="305" width="100" height="75" rx="12" fill="#C9A84C"/>
+            <rect x="25" y="70" width="230" height="240" rx="50" fill="#2A2A26"/>
+            <rect x="40" y="85" width="200" height="210" rx="38" fill="#030303"/>
+          </svg>
+        </div>
+        <button class="video-play-btn" onclick="playVideo()">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        <div class="video-caption">Clique para assistir · 2min 14seg</div>
+      </div>
+    </div>
+
+    <!-- Video script suggestion -->
+    <div style="margin-top:48px;text-align:center;">
+      <p style="color:rgba(255,255,255,0.3);font-size:0.8rem;letter-spacing:0.1em;">
+        CENAS: Close nas engrenagens · Atleta usando o produto · Noite na cidade · Foco nos detalhes da safira
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     SOCIAL PROOF
+============================================ -->
+<section id="social-proof" class="section">
+  <div class="container">
+    <div class="proof-header fade-in">
+      <div class="section-label" style="justify-content:center;">Comunidade de elite</div>
+      <h2>Mais de <span class="gold-text">12.800</span> Clientes<br>em 38 Países</h2>
+      <div class="divider-gold"></div>
+      <p>Executivos, atletas e entusiastas que escolheram não comprometer.</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="proof-stats fade-in delay-1">
+      <div class="stat-item">
+        <span class="stat-number"><span>+</span>12.800</span>
+        <span class="stat-label">Clientes satisfeitos</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">38</span>
+        <span class="stat-label">Países alcançados</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">4.<span>9</span></span>
+        <span class="stat-label">Nota média ★</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">98<span>%</span></span>
+        <span class="stat-label">Recomendam</span>
+      </div>
+    </div>
+
+    <!-- Media Logos -->
+    <div class="media-logos fade-in delay-2">
+      <div class="media-logo">Forbes</div>
+      <div class="media-sep"></div>
+      <div class="media-logo">Vogue</div>
+      <div class="media-sep"></div>
+      <div class="media-logo">GQ</div>
+      <div class="media-sep"></div>
+      <div class="media-logo">Wired</div>
+      <div class="media-sep"></div>
+      <div class="media-logo">Exame</div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="testimonials-grid">
+      <!-- Featured -->
+      <div class="testimonial-card featured fade-in">
+        <div class="testimonial-quote-icon">"</div>
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">
+          Eu já usei Garmin, Apple Watch e até um IWC clássico. O AEVUM ONE é o único que combina a inteligência dos primeiros com a elegância do último. Usei em uma reunião com CEOs internacionais e recebi mais comentários sobre o relógio do que sobre minha proposta. Isso diz tudo.
+        </p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar">
+            <div class="avatar-placeholder" style="background:linear-gradient(135deg,#C9A84C,#8B6914)">RF</div>
+          </div>
+          <div>
+            <span class="testimonial-author">Ricardo Ferreira</span>
+            <span class="testimonial-city">CEO, São Paulo · Proprietário verificado</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in delay-1">
+        <div class="testimonial-quote-icon" style="color:var(--gold);opacity:0.3;">"</div>
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">
+          Como cardiologista, fiquei impressionada com a precisão dos dados de saúde. O ECG e o sensor de oximetria são clini­camente relevantes. Além de ser absolutamente deslumbrante no pulso.
+        </p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar">
+            <div class="avatar-placeholder" style="background:linear-gradient(135deg,#8A8A8A,#4A4A4A)">AM</div>
+          </div>
+          <div>
+            <span class="testimonial-author">Dra. Ana Monteiro</span>
+            <span class="testimonial-city">Cardiologista, Rio de Janeiro</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in delay-2">
+        <div class="testimonial-quote-icon" style="color:var(--gold);opacity:0.3;">"</div>
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">
+          Treino ironman há 8 anos e testei dezenas de dispositivos. O GPS do AEVUM ONE é o mais preciso que já usei, e a bateria dura toda a prova com margem. O acabamento parece impossível para um smartwatch esportivo.
+        </p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar">
+            <div class="avatar-placeholder" style="background:linear-gradient(135deg,#1A8A4A,#0A5A2A)">PB</div>
+          </div>
+          <div>
+            <span class="testimonial-author">Pedro Bastos</span>
+            <span class="testimonial-city">Triatleta profissional, Florianópolis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in delay-3">
+        <div class="testimonial-quote-icon" style="color:var(--gold);opacity:0.3;">"</div>
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">
+          Recebi o AEVUM ONE como presente de aniversário do meu marido e desde então não tirei mais. O modelo Champagne Gold combina com tudo — reuniões formais, eventos noturnos e até na academia. É simplesmente perfeito.
+        </p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar">
+            <div class="avatar-placeholder" style="background:linear-gradient(135deg,#C9A84C,#6A5414)">LC</div>
+          </div>
+          <div>
+            <span class="testimonial-author">Luísa Costa</span>
+            <span class="testimonial-city">Arquiteta, Brasília</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     COMPARISON
+============================================ -->
+<section id="comparison">
+  <div class="container">
+    <div class="comparison-header fade-in">
+      <div class="section-label" style="justify-content:center;">Comparativo</div>
+      <h2>Por Que o AEVUM ONE<br>É a <span class="gold-text">Escolha Óbvia</span></h2>
+      <div class="divider-gold"></div>
+      <p>Compare e decida por si mesmo. Os números falam sozinhos.</p>
+    </div>
+
+    <div class="fade-in delay-1" style="overflow-x:auto;border-radius:var(--radius-lg);">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th style="width:30%;">Característica</th>
+            <th class="th-aevum" style="width:35%;">AEVUM ONE</th>
+            <th style="color:rgba(255,255,255,0.4);width:35%;">Smartwatches Comuns</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-feature">Material da Caixa</td>
+            <td class="td-aevum">Titânio grau aeroespacial Grade 5</td>
+            <td class="td-common">Alumínio ou plástico ABS</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Vidro de Proteção</td>
+            <td class="td-aevum"><span class="check-yes">✦</span> Safira sintética monocristal</td>
+            <td class="td-common"><span class="check-no">—</span> Gorilla Glass (riscável)</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Autonomia de Bateria</td>
+            <td class="td-aevum"><span class="check-yes">✦</span> 7 dias contínuos</td>
+            <td class="td-common"><span class="check-no">—</span> 1–2 dias</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Monitor Cardíaco</td>
+            <td class="td-aevum"><span class="check-yes">✦</span> Sensor 9-LED + ECG médico</td>
+            <td class="td-common">Sensor básico 2-LED</td>
+          </tr>
+          <tr>
+            <td class="td-feature">GPS</td>
+            <td class="td-aevum"><span class="check-yes">✦</span> Dual-band L1+L5 (±1m)</td>
+            <td class="td-common">GPS simples (±10m)</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Pulseira</td>
+            <td class="td-aevum"><span class="check-yes">✦</span> Couro Horween artesanal (EUA)</td>
+            <td class="td-common">Borracha ou nylon sintético</td>
+          </tr>
+          <tr>
+            <td class="td-feature">IA de Saúde</td>
+            <td class="td-aevum"><span class="check-yes">✦</span> Motor proprietário com ML</td>
+            <td class="td-common"><span class="check-no">—</span> Algoritmos básicos</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Resistência à Água</td>
+            <td class="td-aevum"><span class="check-yes">✦</span> 5ATM / 50 metros</td>
+            <td class="td-common">3ATM / respingos</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Garantia</td>
+            <td class="td-aevum"><span class="check-yes">✦</span> 2 anos + suporte premium</td>
+            <td class="td-common">6–12 meses</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Exclusividade</td>
+            <td class="td-aevum"><span class="check-yes">✦</span> Edição limitada — 500 un.</td>
+            <td class="td-common"><span class="check-no">—</span> Produção em massa</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     EXCLUSIVITY
+============================================ -->
+<section id="exclusivity">
+  <div class="exclusivity-bg"></div>
+  <div class="container exclusivity-inner">
+    <div class="exclusivity-header fade-in">
+      <div class="section-label" style="justify-content:center;">Edição fundadora</div>
+      <h2>Apenas 500 Unidades<br><em>Para o Mundo Inteiro</em></h2>
+      <div class="divider-gold"></div>
+      <p>Não é marketing. Cada AEVUM ONE é numerado, certificado e enviado com seu próprio certificado de autenticidade suíço. Quando acabar, acabou.</p>
+    </div>
+
+    <!-- Countdown -->
+    <div class="countdown-block fade-in delay-1">
+      <div class="countdown-label">Oferta de lançamento expira em</div>
+      <div class="countdown-timer">
+        <div class="countdown-unit">
+          <div class="countdown-number" id="days">03</div>
+          <div class="countdown-unit-label">Dias</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-number" id="hours">14</div>
+          <div class="countdown-unit-label">Horas</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-number" id="minutes">37</div>
+          <div class="countdown-unit-label">Minutos</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-number" id="seconds">22</div>
+          <div class="countdown-unit-label">Segundos</div>
+        </div>
+      </div>
+      <div class="units-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Restam apenas <strong id="unitsLeft">47</strong> unidades disponíveis
+      </div>
+    </div>
+
+    <!-- Materials -->
+    <div class="materials-grid">
+      <div class="material-card fade-in">
+        <div class="material-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="material-title">Titânio Grade 5</div>
+        <p class="material-desc">O mesmo material usado em naves espaciais e aviação militar. Leve, biocompatível e virtualmente indestrutível. 40% mais leve que o aço.</p>
+      </div>
+
+      <div class="material-card fade-in delay-1">
+        <div class="material-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <div class="material-title">Safira Sintética</div>
+        <p class="material-desc">Cultivada em laboratório durante 3 semanas, a safira monocristal tem dureza 9 na escala Mohs — apenas o diamante é mais duro.</p>
+      </div>
+
+      <div class="material-card fade-in delay-2">
+        <div class="material-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/>
+            <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+            <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/>
+            <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/>
+            <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/>
+            <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
+            <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/>
+            <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/>
+          </svg>
+        </div>
+        <div class="material-title">Couro Horween</div>
+        <p class="material-desc">Curtido artesanalmente na Horween Leather Co. de Chicago, fundada em 1905. O mesmo couro usado pelos maiores fabricantes de relógios do mundo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     FAQ
+============================================ -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="faq-header fade-in">
+      <div class="section-label" style="justify-content:center;">Dúvidas frequentes</div>
+      <h2>Perguntas que Você<br>Provavelmente Tem</h2>
+      <div class="divider-gold"></div>
+      <p>Respondemos as dúvidas mais comuns com a honestidade que você merece.</p>
+    </div>
+
+    <div class="faq-list fade-in delay-1">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Qual é o prazo de entrega para o Brasil?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Para capitais e regiões metropolitanas, o prazo é de 3 a 5 dias úteis. Demais regiões, de 5 a 10 dias úteis. O frete é totalmente gratuito em todos os pedidos. Cada relógio é enviado em embalagem premium com rastreamento em tempo real e seguro contra danos no transporte.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Como funciona a garantia de 2 anos?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Nossa garantia cobre qualquer defeito de fabricação, falha eletrônica ou problema com os sensores por 24 meses a partir da data de entrega. Você envia o relógio, nós consertamos ou substituímos — sem custo algum. Para situações cobertas, o envio de volta também é por nossa conta. Danos por acidentes têm cobertura parcial.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          O titânio é realmente tão diferente do alumínio?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutamente. O titânio Grade 5 é 60% mais resistente que o aço inoxidável, 40% mais leve e completamente biocompatível (não causa alergias). Além disso, resiste a temperaturas extremas e corrosão. É o mesmo material usado em implantes cirúrgicos e componentes aeroespaciais. A diferença no pulso é imediatamente perceptível.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          É possível personalizar a pulseira ou o mostrador?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Sim! O AEVUM ONE é compatível com pulseiras de 22mm padrão e nós oferecemos 4 variações de pulseira Horween (Castanho, Preto, Cognac e Verde musgo) além de opções em titânio trançado e borracha de alta performance para esportes. O mostrador é 100% personalizável via aplicativo com mais de 200 widgets e complicações.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Posso devolver se não ficar satisfeito?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Com certeza. Oferecemos 30 dias de teste sem risco. Se por qualquer razão o AEVUM ONE não superar suas expectativas, basta nos contatar e organizamos a devolução gratuitamente com reembolso integral — sem perguntas, sem burocracia. Estamos confiantes que isso não vai acontecer, mas a garantia existe porque é justo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Com quais smartphones é compatível?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>O AEVUM ONE é compatível com iOS 15+ (iPhone 8 e superiores) e Android 10+ (a maioria dos smartphones dos últimos 4 anos). O aplicativo AEVUM está disponível gratuitamente na App Store e Google Play. A sincronização acontece automaticamente via Bluetooth 5.3, com alcance de até 100 metros.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     CTA FINAL
+============================================ -->
+<section id="cta-final">
+  <div class="cta-bg"></div>
+  <div class="cta-bg-lines"></div>
+  <div class="container">
+    <div class="cta-inner fade-in">
+      <div class="cta-eyebrow">Edição Limitada · 500 Unidades</div>
+      <h2 class="cta-headline">
+        Sua Melhor Versão<br>
+        Começa no <em>Pulso.</em>
+      </h2>
+      <p class="cta-sub">
+        <strong>Apenas 47 unidades restantes.</strong> Cada minuto que passa é um minuto em que alguém mais decide que seu tempo vale o melhor. Não deixe para depois o que pode começar agora.
+      </p>
+
+      <div class="cta-btn-block">
+        <a href="#product" class="btn btn-gold btn-lg" style="padding:22px 72px;font-size:0.95rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          Garantir Meu AEVUM ONE
+        </a>
+        <div class="cta-microcopy">
+          <div class="cta-microcopy-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Frete grátis para todo o Brasil
+          </div>
+          <div class="cta-microcopy-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Garantia 2 anos
+          </div>
+          <div class="cta-microcopy-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            30 dias para testar
+          </div>
+          <div class="cta-microcopy-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Pagamento 100% seguro
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     FOOTER
+============================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <div class="footer-brand-name">AEVUM</div>
+        <div class="footer-tagline">O tempo é seu. Use-o com distinção.</div>
+        <p class="footer-bio">Criamos smartwatches de luxo para quem entende que a tecnologia mais sofisticada não precisa sacrificar a elegância. Cada AEVUM ONE é um manifesto de perfeição.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.41 19.1C5.12 19.55 12 19.55 12 19.55s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.95-1.97 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.46z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <div class="footer-col-title">Produto</div>
+        <ul class="footer-links">
+          <li><a href="#product">AEVUM ONE</a></li>
+          <li><a href="#features">Tecnologia</a></li>
+          <li><a href="#comparison">Comparativo</a></li>
+          <li><a href="#exclusivity">Edição Limitada</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Suporte</div>
+        <ul class="footer-links">
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Rastrear pedido</a></li>
+          <li><a href="#">Central de ajuda</a></li>
+          <li><a href="#">Política de devolução</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Empresa</div>
+        <ul class="footer-links">
+          <li><a href="#story">Nossa história</a></li>
+          <li><a href="#">Imprensa</a></li>
+          <li><a href="#">Sustentabilidade</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 AEVUM Luxury Timepieces. Todos os direitos reservados.</span>
+      <div class="footer-legal">
+        <a href="#">Termos de uso</a>
+        <a href="#">Privacidade</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- Notification popup -->
+<div class="notification" id="notification">
+  <div class="notif-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+  </div>
+  <div class="notif-text">
+    <strong id="notifName">Marcos de SP</strong>
+    <span id="notifMsg">acabou de garantir o seu AEVUM ONE</span>
+  </div>
+</div>
+
+
+<!-- ============================================
+     JAVASCRIPT
+============================================ -->
+<script>
+  // ============================================
+  // CUSTOM CURSOR
+  // ============================================
+  const cursor = document.getElementById('cursor');
+  const cursorFollower = document.getElementById('cursorFollower');
+  let mouseX = 0, mouseY = 0;
+  let followerX = 0, followerY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+  });
+
+  function animateFollower() {
+    followerX += (mouseX - followerX) * 0.12;
+    followerY += (mouseY - followerY) * 0.12;
+    cursorFollower.style.left = followerX + 'px';
+    cursorFollower.style.top = followerY + 'px';
+    requestAnimationFrame(animateFollower);
+  }
+  animateFollower();
+
+  // Cursor scale on hover
+  document.querySelectorAll('a, button, .feature-card, .testimonial-card, .product-thumb, .color-option').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+      cursorFollower.style.transform = 'translate(-50%, -50%) scale(1.4)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+  });
+
+  // ============================================
+  // SCROLL PROGRESS BAR
+  // ============================================
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+  });
+
+  // ============================================
+  // STICKY HEADER
+  // ============================================
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // ============================================
+  // BACK TO TOP
+  // ============================================
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  });
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ============================================
+  // MOBILE MENU
+  // ============================================
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ============================================
+  // INTERSECTION OBSERVER (Animations)
+  // ============================================
+  const fadeEls = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ============================================
+  // FAQ ACCORDION
+  // ============================================
+  function toggleFaq(button) {
+    const item = button.parentElement;
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+    // Open clicked if was closed
+    if (!isOpen) {
+      item.classList.add('open');
+    }
+  }
+
+  // ============================================
+  // COUNTDOWN TIMER
+  // ============================================
+  function getCountdownDate() {
+    // Store deadline in localStorage so it persists
+    let deadline = localStorage.getItem('aevumDeadline');
+    if (!deadline) {
+      // Set 3 days, 14 hours from now
+      const d = new Date();
+      d.setDate(d.getDate() + 3);
+      d.setHours(d.getHours() + 14);
+      deadline = d.getTime().toString();
+      localStorage.setItem('aevumDeadline', deadline);
+    }
+    return parseInt(deadline);
+  }
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const deadline = getCountdownDate();
+    const diff = deadline - now;
+
+    if (diff <= 0) {
+      document.getElementById('days').textContent = '00';
+      document.getElementById('hours').textContent = '00';
+      document.getElementById('minutes').textContent = '00';
+      document.getElementById('seconds').textContent = '00';
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // ============================================
+  // UNITS LEFT (decreasing counter effect)
+  // ============================================
+  let units = parseInt(localStorage.getItem('aevumUnits') || '47');
+  document.getElementById('unitsLeft').textContent = units;
+
+  // Occasionally decrease by 1
+  setInterval(() => {
+    if (Math.random() < 0.15 && units > 12) {
+      units--;
+      localStorage.setItem('aevumUnits', units.toString());
+      document.getElementById('unitsLeft').textContent = units;
+    }
+  }, 45000);
+
+  // ============================================
+  // COLOR / VARIANT SELECTOR
+  // ============================================
+  function selectColor(name, btn) {
+    document.querySelectorAll('.color-option').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('colorName').textContent = name;
+
+    // Sync with thumbnail
+    const map = { 'Midnight Black': 0, 'Champagne Gold': 1, 'Arctic Silver': 2 };
+    const idx = map[name];
+    const thumbs = document.querySelectorAll('.product-thumb');
+    thumbs.forEach(t => t.classList.remove('active'));
+    if (thumbs[idx]) thumbs[idx].classList.add('active');
+  }
+
+  function selectVariant(variant, btn) {
+    document.querySelectorAll('.product-thumb').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const colorMap = {
+      'midnight': { name: 'Midnight Black', cls: 'color-midnight' },
+      'champagne': { name: 'Champagne Gold', cls: 'color-champagne' },
+      'arctic': { name: 'Arctic Silver', cls: 'color-arctic' }
+    };
+
+    const { name, cls } = colorMap[variant];
+    document.getElementById('colorName').textContent = name;
+
+    document.querySelectorAll('.color-option').forEach(b => b.classList.remove('active'));
+    const colorBtn = document.querySelector('.' + cls);
+    if (colorBtn) colorBtn.classList.add('active');
+  }
+
+  // ============================================
+  // ADD TO CART (feedback)
+  // ============================================
+  function addToCart() {
+    const btn = event.target.closest('button');
+    const original = btn.innerHTML;
+    btn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Adicionado ao carrinho!
+    `;
+    btn.style.background = 'linear-gradient(135deg, #2A7A3A, #3A9A4A)';
+    setTimeout(() => {
+      btn.innerHTML = original;
+      btn.style.background = '';
+    }, 2500);
+  }
+
+  // ============================================
+  // VIDEO PLAY (feedback)
+  // ============================================
+  function playVideo() {
+    const placeholder = document.querySelector('.video-placeholder');
+    placeholder.style.background = '#000';
+    const grid = placeholder.querySelector('.video-grid');
+    const playBtn = placeholder.querySelector('.video-play-btn');
+    const caption = placeholder.querySelector('.video-caption');
+
+    if (grid) grid.style.opacity = '0';
+    if (playBtn) {
+      playBtn.style.transform = 'scale(0)';
+      playBtn.style.opacity = '0';
+    }
+    if (caption) caption.style.opacity = '0';
+
+    // Show a message
+    const msg = document.createElement('div');
+    msg.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:3;';
+    msg.innerHTML = `
+      <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;letter-spacing:0.1em;font-family:var(--font-sans)">
+        ⟡ Integre seu vídeo substituindo este placeholder<br>
+        <span style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:8px;display:block;">
+          &lt;video&gt; ou embed do YouTube/Vimeo
+        </span>
+      </p>
+    `;
+    placeholder.appendChild(msg);
+
+    setTimeout(() => {
+      placeholder.style.background = '';
+      if (grid) grid.style.opacity = '';
+      if (playBtn) { playBtn.style.transform = ''; playBtn.style.opacity = ''; }
+      if (caption) caption.style.opacity = '';
+      if (msg.parentNode) msg.parentNode.removeChild(msg);
+    }, 3500);
+  }
+
+  // ============================================
+  // NOTIFICATION POPUPS
+  // ============================================
+  const notifications = [
+    { name: 'Marcos de SP', msg: 'acabou de garantir o seu AEVUM ONE · Midnight Black' },
+    { name: 'Fernanda do RJ', msg: 'adquiriu o AEVUM ONE · Champagne Gold' },
+    { name: 'Rafael de BH', msg: 'acabou de fazer o pedido · Arctic Silver' },
+    { name: 'Juliana de BSB', msg: 'garantiu o último em estoque · Champagne Gold' },
+    { name: 'Carlos de POA', msg: 'fez seu pedido há 2 minutos · Midnight Black' },
+    { name: 'Amanda de CWB', msg: 'adquiriu para presentear · Arctic Silver' },
+  ];
+
+  let notifIndex = 0;
+  const notif = document.getElementById('notification');
+
+  function showNotification() {
+    const n = notifications[notifIndex % notifications.length];
+    document.getElementById('notifName').textContent = n.name;
+    document.getElementById('notifMsg').textContent = n.msg;
+    notif.classList.add('show');
+    setTimeout(() => notif.classList.remove('show'), 4500);
+    notifIndex++;
+  }
+
+  // Show first notification after 8 seconds, then every 20 seconds
+  setTimeout(() => {
+    showNotification();
+    setInterval(showNotification, 22000);
+  }, 8000);
+
+  // ============================================
+  // SMOOTH SCROLL for anchor links
+  // ============================================
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const id = this.getAttribute('href');
+      if (id === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(id);
+      if (target) {
+        const headerH = document.getElementById('header').offsetHeight;
+        const targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerH;
+        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ============================================
+  // PARALLAX on hero visual (subtle)
+  // ============================================
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const hero = document.querySelector('.hero-visual');
+    if (hero && scrollY < window.innerHeight) {
+      hero.style.transform = `translateY(${scrollY * 0.08}px)`;
+    }
+  });
+
+  // ============================================
+  // NUMBER COUNTER ANIMATION
+  // ============================================
+  function animateCounter(el, end, suffix = '') {
+    let start = 0;
+    const duration = 2000;
+    const step = end / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= end) {
+        start = end;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(start).toLocaleString('pt-BR') + suffix;
+    }, 16);
+  }
+
+  // Trigger counters when stats section is visible
+  const statsSection = document.querySelector('.proof-stats');
+  let countersStarted = false;
+  const statsObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !countersStarted) {
+      countersStarted = true;
+      const statNumbers = document.querySelectorAll('.stat-number');
+      // 12.800 clients
+      statNumbers[0].innerHTML = '<span>+</span><span class="counter-num">0</span>';
+      animateCounter(statNumbers[0].querySelector('.counter-num'), 12800, '');
+      // 38 countries - leave as is
+      // 4.9 rating - leave as is
+      // 98% - leave as is
+    }
+  }, { threshold: 0.5 });
+  if (statsSection) statsObserver.observe(statsSection);
+
+  // ============================================
+  // HERO initial animations trigger
+  // ============================================
+  window.addEventListener('load', () => {
+    // Trigger hero animations
+    setTimeout(() => {
+      document.querySelectorAll('#hero .fade-in, #hero .fade-in-right').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 300);
+  });
+</script>
+
+</body>
+</html>
